@@ -94,30 +94,6 @@ async function getLatestBlock() {
 
 getLatestBlock();
 
-async function getLatestBlock() {
-    try {
-      const response = await fetch(`https://quaint-late-pine.quicknode.pro/${process.env.QUICKNODE_API_KEY}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          jsonrpc: "2.0",
-          id: 1,
-          method: "eth_blockNumber",
-          params: [],
-        }),
-      });
-  
-      const data = await response.json();
-      const blockNumber = parseInt(data.result, 16); // Convert hex to decimal
-      console.log("Latest Block Number:", blockNumber);
-  
-      // Update UI
-      document.getElementById("latest-block").innerText = `Latest Block: ${blockNumber}`;
-    } catch (error) {
-      console.error("Error fetching block number:", error);
-    }
-  }
-  
   // Update block number every 10 seconds
   setInterval(getLatestBlock, 10000);
   getLatestBlock();
