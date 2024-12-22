@@ -101,6 +101,7 @@ function clearSearchFields() {
 
 $(document).ready(function () {
 
+
     let myOfferImage = $("img.offer");
     myOfferImage.attr("src", myOfferImg);
 
